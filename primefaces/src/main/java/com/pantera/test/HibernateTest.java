@@ -23,16 +23,16 @@ public class HibernateTest {
 		tc.setDescripcion("carousel");
 		
 		Componente c=new Componente();
-		//c.setIdcomponente(1);
-		c.setContenido("contenido1");
+		c.setIdcomponente(2);
+		c.setContenido("contenido2");
 		c.setImagen("");
 		c.setIdpadre(0);
 		c.setTipoComponente(tc);
 		
 		GenericDaoImpl<Componente> dao=new GenericDaoImpl<Componente>();
-		dao.persist(c);
+		//dao.saveOrUpdate(c);
 		
-		/*
+		/* */
 		List<Componente> lista=dao.listAll(Componente.class);
 		Map<String, Object> parameters=new HashMap<String, Object>();
 		parameters.put("id",(long)1);
@@ -42,7 +42,7 @@ public class HibernateTest {
 				System.out.println(((Componente)rol).getContenido());
 		}
 		
-		*/
+		
 		
 	}
 	

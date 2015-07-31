@@ -25,7 +25,7 @@ import com.pantera.util.HibernateUtil;
 import com.pantera.util.JDBCRow;
 import com.pantera.util.JDBCUtils;
 
-public class GenericDaoImpl<T> implements IGenericDao<T>{
+public class GenericDaoImpl<T> implements GenericDao<T>{
 
 	private Session session;
 	private Transaction tran;

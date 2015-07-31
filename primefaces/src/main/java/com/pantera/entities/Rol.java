@@ -1,7 +1,12 @@
 package com.pantera.entities;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
 import java.util.List;
 
 
@@ -15,8 +20,8 @@ public class Rol implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="ROL_IDROL_GENERATOR", sequenceName="SQ_ROL")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ROL_IDROL_GENERATOR")
+	@GenericGenerator(name="SQ_GENERATOR_ROL",strategy="sequence",parameters={@Parameter(name="sequence",value="sq_rol")})
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SQ_GENERATOR_ROL")
 	private long idrol;
 
 	private String descripcion;

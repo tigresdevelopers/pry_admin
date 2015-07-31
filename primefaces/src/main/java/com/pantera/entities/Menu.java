@@ -1,7 +1,12 @@
 package com.pantera.entities;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -16,8 +21,8 @@ public class Menu implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="MENU_IDMENU_GENERATOR", sequenceName="SQ_MENU")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MENU_IDMENU_GENERATOR")
+	@GenericGenerator(name="SQ_GENERATOR_MENU",strategy="sequence",parameters={@Parameter(name="sequence",value="sq_menu")})
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SQ_GENERATOR_MENU")
 	private long idmenu;
 
 	private String descripcion;
