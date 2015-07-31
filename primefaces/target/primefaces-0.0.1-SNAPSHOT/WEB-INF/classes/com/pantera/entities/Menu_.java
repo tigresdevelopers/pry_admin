@@ -6,7 +6,7 @@ import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="Dali", date="2015-07-26T17:49:13.943-0500")
+@Generated(value="Dali", date="2015-07-31T00:42:38.872-0500")
 @StaticMetamodel(Menu.class)
 public class Menu_ {
 	public static volatile SingularAttribute<Menu, Long> idmenu;

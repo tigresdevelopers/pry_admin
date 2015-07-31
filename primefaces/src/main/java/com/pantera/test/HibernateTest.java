@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.pantera.dao.GenericDaoImpl;
+import com.pantera.entities.Componente;
 import com.pantera.entities.Rol;
+import com.pantera.entities.TipoComponente;
 
 public class HibernateTest {
 
@@ -16,19 +18,31 @@ public class HibernateTest {
 		obj.setIdrol(3);
 		obj.setDescripcion("HqlGeneric");
 		
-		GenericDaoImpl<Rol> dao=new GenericDaoImpl<Rol>();
-		//dao.persist(obj);
+		TipoComponente tc=new TipoComponente();
+		tc.setIdtipo(1);
+		tc.setDescripcion("carousel");
 		
-		List<Rol> lista=dao.listAll(Rol.class);
+		Componente c=new Componente();
+		//c.setIdcomponente(1);
+		c.setContenido("contenido1");
+		c.setImagen("");
+		c.setIdpadre(0);
+		c.setTipoComponente(tc);
+		
+		GenericDaoImpl<Componente> dao=new GenericDaoImpl<Componente>();
+		dao.persist(c);
+		
+		/*
+		List<Componente> lista=dao.listAll(Componente.class);
 		Map<String, Object> parameters=new HashMap<String, Object>();
 		parameters.put("id",(long)1);
 		//lista=dao.listHQL("from Rol where idrol=:id",parameters,Rol.class);
 		for (Object rol : lista) {
-			if(rol instanceof Rol)
-				System.out.println(((Rol)rol).getDescripcion());
+			if(rol instanceof Componente)
+				System.out.println(((Componente)rol).getContenido());
 		}
 		
-		
+		*/
 		
 	}
 	

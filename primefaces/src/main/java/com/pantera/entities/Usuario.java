@@ -2,6 +2,7 @@ package com.pantera.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -9,11 +10,12 @@ import javax.persistence.*;
  * 
  */
 @Entity
+@NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	private String idusuario;
+	@EmbeddedId
+	private UsuarioPK id;
 
 	private String login;
 
@@ -23,15 +25,23 @@ public class Usuario implements Serializable {
 	@ManyToOne
 	private Rol rol;
 
+	//bi-directional many-to-one association to Cliente
+	@OneToMany(mappedBy="usuario")
+	private List<Cliente> clientes;
+
+	//bi-directional many-to-one association to Empleado
+	@OneToMany(mappedBy="usuario")
+	private List<Empleado> empleados;
+
 	public Usuario() {
 	}
 
-	public String getIdusuario() {
-		return this.idusuario;
+	public UsuarioPK getId() {
+		return this.id;
 	}
 
-	public void setIdusuario(String idusuario) {
-		this.idusuario = idusuario;
+	public void setId(UsuarioPK id) {
+		this.id = id;
 	}
 
 	public String getLogin() {
@@ -56,6 +66,50 @@ public class Usuario implements Serializable {
 
 	public void setRol(Rol rol) {
 		this.rol = rol;
+	}
+
+	public List<Cliente> getClientes() {
+		return this.clientes;
+	}
+
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+
+	public Cliente addCliente(Cliente cliente) {
+		getClientes().add(cliente);
+		cliente.setUsuario(this);
+
+		return cliente;
+	}
+
+	public Cliente removeCliente(Cliente cliente) {
+		getClientes().remove(cliente);
+		cliente.setUsuario(null);
+
+		return cliente;
+	}
+
+	public List<Empleado> getEmpleados() {
+		return this.empleados;
+	}
+
+	public void setEmpleados(List<Empleado> empleados) {
+		this.empleados = empleados;
+	}
+
+	public Empleado addEmpleado(Empleado empleado) {
+		getEmpleados().add(empleado);
+		empleado.setUsuario(this);
+
+		return empleado;
+	}
+
+	public Empleado removeEmpleado(Empleado empleado) {
+		getEmpleados().remove(empleado);
+		empleado.setUsuario(null);
+
+		return empleado;
 	}
 
 }

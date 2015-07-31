@@ -11,11 +11,13 @@ import java.util.List;
  * 
  */
 @Entity
+@NamedQuery(name="Menu.findAll", query="SELECT m FROM Menu m")
 public class Menu implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@SequenceGenerator(name="MENU_IDMENU_GENERATOR", sequenceName="SQ_MENU")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MENU_IDMENU_GENERATOR")
 	private long idmenu;
 
 	private String descripcion;
@@ -27,7 +29,16 @@ public class Menu implements Serializable {
 	private String url;
 
 	//bi-directional many-to-many association to Rol
-	@ManyToMany(mappedBy="menus")
+	@ManyToMany
+	@JoinTable(
+		name="MENU_ROL"
+		, joinColumns={
+			@JoinColumn(name="MENU_IDMENU")
+			}
+		, inverseJoinColumns={
+			@JoinColumn(name="ROL_IDROL")
+			}
+		)
 	private List<Rol> rols;
 
 	public Menu() {

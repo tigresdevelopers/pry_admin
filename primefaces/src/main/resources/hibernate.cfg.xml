@@ -3,20 +3,39 @@
 		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-
-    <session-factory name="hibernatefactory">
-        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <session-factory name="tigersfactory">
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
         <property name="hibernate.connection.password">d3v3l0p3r</property>
         <property name="hibernate.connection.url">jdbc:oracle:thin:@192.168.1.45:1521:XE</property>
         <property name="hibernate.connection.username">developer</property>
         <property name="hibernate.default_schema">developer</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
-        <property name="hibernate.show_sql">false</property>
-		<property name="hibernate.format_sql">false</property>
-		
-		<mapping class="com.pantera.entities.Rol"/>
-		<mapping class="com.pantera.entities.Menu"/>
-		<mapping class="com.pantera.entities.Usuario"/>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">false</property>
+        <property name="hibernate.use_sql_comments">false</property>
+        <property name="hibernate.jdbc.batch_size" >100</property>
+        <property name="hibernate.jdbc.order_insert" >true</property>
+        <property name="hibernate.jdbc.order_update" >true</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        
+        
+        <mapping class="com.pantera.entities.Catalogo"/>
+        <mapping class="com.pantera.entities.Categoria"/>
+        <mapping class="com.pantera.entities.Cliente"/>
+        <mapping class="com.pantera.entities.Componente"/>
+        <mapping class="com.pantera.entities.Correo"/>
+        <mapping class="com.pantera.entities.Empleado"/>
+        <mapping class="com.pantera.entities.Menu"/>
+        <mapping class="com.pantera.entities.PedidoCabe"/>
+        <mapping class="com.pantera.entities.PedidoDeta"/>
+        <mapping class="com.pantera.entities.PedidoDetaPK"/>
+        <mapping class="com.pantera.entities.Producto"/>
+        <mapping class="com.pantera.entities.Rol"/>
+        <mapping class="com.pantera.entities.TipoComponente"/>
+        <mapping class="com.pantera.entities.Usuario"/>
+        <mapping class="com.pantera.entities.UsuarioPK"/>
+        
+        
     </session-factory>
-    
 </hibernate-configuration>

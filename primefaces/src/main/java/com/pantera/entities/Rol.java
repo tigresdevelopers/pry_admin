@@ -10,31 +10,24 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="ROL",schema="developer")
+@NamedQuery(name="Rol.findAll", query="SELECT r FROM Rol r")
 public class Rol implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@SequenceGenerator(name="ROL_IDROL_GENERATOR", sequenceName="SQ_ROL")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ROL_IDROL_GENERATOR")
 	private long idrol;
 
 	private String descripcion;
 
-	//bi-directional many-to-many association to Menu
-	@ManyToMany
-	@JoinTable(
-		name="MENUROL"
-		, joinColumns={
-			@JoinColumn(name="ROL_IDROL")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="MENU_IDMENU")
-			}
-		)
-	private List<Menu> menus;
-
 	//bi-directional many-to-one association to Usuario
 	@OneToMany(mappedBy="rol")
 	private List<Usuario> usuarios;
+
+	//bi-directional many-to-many association to Menu
+	@ManyToMany(mappedBy="rols")
+	private List<Menu> menus;
 
 	public Rol() {
 	}
@@ -53,14 +46,6 @@ public class Rol implements Serializable {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
-	}
-
-	public List<Menu> getMenus() {
-		return this.menus;
-	}
-
-	public void setMenus(List<Menu> menus) {
-		this.menus = menus;
 	}
 
 	public List<Usuario> getUsuarios() {
@@ -83,6 +68,14 @@ public class Rol implements Serializable {
 		usuario.setRol(null);
 
 		return usuario;
+	}
+
+	public List<Menu> getMenus() {
+		return this.menus;
+	}
+
+	public void setMenus(List<Menu> menus) {
+		this.menus = menus;
 	}
 
 }
