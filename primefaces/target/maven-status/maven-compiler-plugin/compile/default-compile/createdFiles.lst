@@ -1,0 +1,13 @@
+com\pantera\entities\Menu.class
+com\pantera\dao\GenericDaoImpl.class
+com\pantera\util\HibernateUtil.class
+com\pantera\entities\Rol.class
+com\pantera\entities\Usuario_.class
+com\pantera\entities\Usuario.class
+com\pantera\entities\Menu_.class
+com\pantera\entities\Rol_.class
+com\pantera\util\JDBCUtils.class
+com\pantera\dao\IGenericDao.class
+com\pantera\test\HibernateTest.class
+com\pantera\util\JDBCRow.class
+com\pantera\controllers\Test.class

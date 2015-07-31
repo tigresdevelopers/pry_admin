@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+    <session-factory name="hibernatefactory">
+        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="hibernate.connection.password">d3v3l0p3r</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@192.168.1.45:1521:XE</property>
+        <property name="hibernate.connection.username">developer</property>
+        <property name="hibernate.default_schema">developer</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
+        <property name="hibernate.show_sql">false</property>
+		<property name="hibernate.format_sql">false</property>
+		
+		<mapping class="com.pantera.entities.Rol"/>
+		<mapping class="com.pantera.entities.Menu"/>
+		<mapping class="com.pantera.entities.Usuario"/>
+    </session-factory>
+    
+</hibernate-configuration>
