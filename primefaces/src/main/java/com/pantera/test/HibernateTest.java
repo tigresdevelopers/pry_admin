@@ -4,10 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.pantera.dao.GenericDaoImpl;
 import com.pantera.entities.Componente;
 import com.pantera.entities.Rol;
 import com.pantera.entities.TipoComponente;
+import com.pantera.service.GenericService;
+import com.pantera.service.GenericServiceImpl;
 
 public class HibernateTest {
 
@@ -29,17 +30,24 @@ public class HibernateTest {
 		c.setIdpadre(0);
 		c.setTipoComponente(tc);
 		
-		GenericDaoImpl<Componente> dao=new GenericDaoImpl<Componente>();
+		GenericService<TipoComponente> dao=new GenericServiceImpl<TipoComponente>();
 		//dao.saveOrUpdate(c);
 		
 		/* */
-		List<Componente> lista=dao.listAll(Componente.class);
+		
+		
 		Map<String, Object> parameters=new HashMap<String, Object>();
-		parameters.put("id",(long)1);
-		//lista=dao.listHQL("from Rol where idrol=:id",parameters,Rol.class);
-		for (Object rol : lista) {
-			if(rol instanceof Componente)
-				System.out.println(((Componente)rol).getContenido());
+		parameters.put("id",1);
+		
+		List<TipoComponente> lista = null;
+		try {
+			lista = dao.listHQL("select idtipo as idtipo,descripcion as descripcion from "+(TipoComponente.class).getSimpleName()+" where idtipo= :id",parameters,TipoComponente.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+		for (Componente o : new GenericServiceImpl<Componente>().listAll(Componente.class)) {
+			System.out.println(o.getContenido());
 		}
 		
 		

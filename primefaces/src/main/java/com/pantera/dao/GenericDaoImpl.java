@@ -146,7 +146,7 @@ public class GenericDaoImpl<T> implements GenericDao<T>{
         if (clazz == null) {
             query =session.createQuery(hql);
         } else {
-            query =session.createQuery(hql).setResultTransformer(Transformers.aliasToBean(clazz));
+        	query=session.createQuery(hql).setResultTransformer(Transformers.aliasToBean(clazz));
         }
         if (parameters != null) {
             for (Map.Entry<String, Object> entry : parameters.entrySet()) {
