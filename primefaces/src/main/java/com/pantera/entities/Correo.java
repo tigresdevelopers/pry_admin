@@ -9,7 +9,6 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Correo.findAll", query="SELECT c FROM Correo c")
 public class Correo implements Serializable {
 	private static final long serialVersionUID = 1L;
 

@@ -5,15 +5,11 @@
  */
 package com.pantera.util;
 
-/**
- *
- * @author PaulHenry
- */
 
 public class JDBCRow {
 
 	private String fieldKey;
-        private Object fieldValue;
+    private Object fieldValue;
 
     public String getFieldKey() {
         return fieldKey;

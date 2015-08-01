@@ -5,10 +5,6 @@
  */
 package com.pantera.util;
 
-/**
- *
- * @author PaulHenry
- */
 import java.sql.ResultSet;
 
 

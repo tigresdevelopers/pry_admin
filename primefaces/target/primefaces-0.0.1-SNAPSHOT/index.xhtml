@@ -5,10 +5,12 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"> 
 
-<h:head></h:head> 
+<h:head>
+<f:loadBundle basename="properties.mensajes" var="msg"/>
+</h:head> 
 <h:body>
 <h:form>
-<p:inputText value="#{test.nombre}" label="Campo"/>
+<p:inputText value="#{test.nombre}" label="#{msg.saludo}"/>
 <p:commandButton value="Registrar" action="#{test.bienvenido()}" />
 </h:form>	
 </h:body>

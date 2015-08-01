@@ -46,8 +46,8 @@ public class HibernateTest {
 			e.printStackTrace();
 		}
 	
-		for (Componente o : new GenericServiceImpl<Componente>().listAll(Componente.class)) {
-			System.out.println(o.getContenido());
+		for (TipoComponente o : lista) {
+			System.out.println(o.getDescripcion());
 		}
 		
 		

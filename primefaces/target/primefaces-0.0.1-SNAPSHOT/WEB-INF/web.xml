@@ -8,7 +8,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>*.xhtml</url-pattern>
+    <url-pattern>*.tigers</url-pattern>
   </servlet-mapping>
   
   <!-- 	PRIME -->
@@ -18,7 +18,7 @@
 	</context-param>
   
   <welcome-file-list>
-  	<welcome-file>index.xhtml</welcome-file>
+  	<welcome-file>index.tigers</welcome-file>
   </welcome-file-list>
   
 </web-app>

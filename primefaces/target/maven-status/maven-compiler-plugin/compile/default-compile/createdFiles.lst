@@ -3,7 +3,7 @@ com\pantera\entities\Catalogo.class
 com\pantera\entities\Componente_.class
 com\pantera\entities\Usuario_.class
 com\pantera\entities\Categoria_.class
-com\pantera\dao\IGenericDao.class
+com\pantera\service\GenericService.class
 com\pantera\entities\PedidoCabe.class
 com\pantera\dao\GenericDaoImpl.class
 com\pantera\entities\Cliente.class
@@ -14,12 +14,15 @@ com\pantera\entities\TipoComponente_.class
 com\pantera\entities\Cliente_.class
 com\pantera\entities\Menu_.class
 com\pantera\entities\Rol_.class
+com\pantera\util\jsf\Faces.class
 com\pantera\entities\Componente.class
 com\pantera\entities\UsuarioPK.class
 com\pantera\entities\Empleado_.class
 com\pantera\entities\PedidoDeta.class
+com\pantera\service\GenericServiceImpl.class
 com\pantera\entities\PedidoDetaPK.class
 com\pantera\util\JDBCUtils.class
+com\pantera\dao\GenericDao.class
 com\pantera\entities\Correo_.class
 com\pantera\entities\UsuarioPK_.class
 com\pantera\entities\PedidoDeta_.class

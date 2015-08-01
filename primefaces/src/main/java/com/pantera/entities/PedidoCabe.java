@@ -13,7 +13,6 @@ import java.util.List;
  */
 @Entity
 @Table(name="PEDIDO_CABE")
-@NamedQuery(name="PedidoCabe.findAll", query="SELECT p FROM PedidoCabe p")
 public class PedidoCabe implements Serializable {
 	private static final long serialVersionUID = 1L;
 
