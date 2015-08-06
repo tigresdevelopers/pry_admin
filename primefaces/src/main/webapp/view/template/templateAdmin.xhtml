@@ -5,12 +5,13 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:m="http://java.sun.com/jsf/composite/components"
       xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions">
       
       
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Not present in rendered output</title>
+	<title><ui:insert name="title"></ui:insert></title>
 	<link href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 </h:head>
 
@@ -30,13 +31,13 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="#{fn:startsWith(request.pathInfo,'/index')?'active':'' } ">
+                        <li class="#{fn:startsWith(request.servletPath,'/index')?'active':'' } ">
                         	<h:link outcome="index" value="Home"/>
                         </li>
-                        <li class="#{fn:startsWith(request.pathInfo,'/about')?'active':'' } ">
+                        <li class="#{fn:startsWith(request.servletPath,'/about')?'active':'' } ">
                         	<h:link outcome="about" value="About"/>
                         </li>
-                        <li class="#{fn:startsWith(request.pathInfo,'/contact')?'active':'' } ">
+                        <li class="#{fn:startsWith(request.servletPath,'/contact')?'active':'' } ">
                         	<h:link outcome="contact" value="Contact"/>
                         </li>
                     </ul>

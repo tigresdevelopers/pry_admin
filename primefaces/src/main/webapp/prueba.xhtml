@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:m="http://java.sun.com/jsf/composite/components"> 
+
+<h:head>
+<f:loadBundle basename="properties.es.mensajes" var="msg"/>
+</h:head> 
+<h:body>
+
+<ui:composition template="/view/template/admin.xhtml">
+	<ui:define name="title">Index</ui:define>
+	<ui:define name="content">
+		<br/>
+		<br/>
+		<br/>
+		<h1>Pagina de Inicio</h1>
+		<h:form>
+		<p:inputText value="#{test.nombre}" label="#{msg.saludo}"/>
+		<p:commandButton value="Registrar" action="#{test.bienvenido()}" />
+		
+		<p:commandLink value="redirecionar"  action="#{test.mantenimientos()}"/>
+		<p:commandLink value="redirecionar"  action="#{test.login()}"/>
+
+		<p:separator />
+	
+		</h:form>	
+		
+	<h:form id="test">
+	<m:maintenanceEntity dao="#{test.dao}" label="Mantenimiento de Tipo Componente" entity="#{test.tcomponente}" buttonAction="#{test.metodo}"/>
+	</h:form>	
+		
+	</ui:define>
+</ui:composition>
+
+</h:body>
+</html>

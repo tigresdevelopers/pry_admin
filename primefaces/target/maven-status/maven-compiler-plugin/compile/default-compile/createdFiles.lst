@@ -20,6 +20,7 @@ com\tigers\service\GenericService.class
 com\tigers\entities\Cliente_.class
 com\tigers\dao\GenericDao.class
 com\tigers\entities\Correo_.class
+com\tigers\components\MaintenanceEntity.class
 com\tigers\entities\Componente_.class
 com\tigers\util\HibernateUtil.class
 com\tigers\dao\GenericDaoImpl.class

@@ -20,21 +20,21 @@
         <property name="hibernate.current_session_context_class">thread</property>
         
         
-        <mapping class="com.pantera.entities.Catalogo"/>
-        <mapping class="com.pantera.entities.Categoria"/>
-        <mapping class="com.pantera.entities.Cliente"/>
-        <mapping class="com.pantera.entities.Componente"/>
-        <mapping class="com.pantera.entities.Correo"/>
-        <mapping class="com.pantera.entities.Empleado"/>
-        <mapping class="com.pantera.entities.Menu"/>
-        <mapping class="com.pantera.entities.PedidoCabe"/>
-        <mapping class="com.pantera.entities.PedidoDeta"/>
-        <mapping class="com.pantera.entities.PedidoDetaPK"/>
-        <mapping class="com.pantera.entities.Producto"/>
-        <mapping class="com.pantera.entities.Rol"/>
-        <mapping class="com.pantera.entities.TipoComponente"/>
-        <mapping class="com.pantera.entities.Usuario"/>
-        <mapping class="com.pantera.entities.UsuarioPK"/>
+        <mapping class="com.tigers.entities.Catalogo"/>
+        <mapping class="com.tigers.entities.Categoria"/>
+        <mapping class="com.tigers.entities.Cliente"/>
+        <mapping class="com.tigers.entities.Componente"/>
+        <mapping class="com.tigers.entities.Correo"/>
+        <mapping class="com.tigers.entities.Empleado"/>
+        <mapping class="com.tigers.entities.Menu"/>
+        <mapping class="com.tigers.entities.PedidoCabe"/>
+        <mapping class="com.tigers.entities.PedidoDeta"/>
+        <mapping class="com.tigers.entities.PedidoDetaPK"/>
+        <mapping class="com.tigers.entities.Producto"/>
+        <mapping class="com.tigers.entities.Rol"/>
+        <mapping class="com.tigers.entities.TipoComponente"/>
+        <mapping class="com.tigers.entities.Usuario"/>
+        <mapping class="com.tigers.entities.UsuarioPK"/>
         
         
     </session-factory>

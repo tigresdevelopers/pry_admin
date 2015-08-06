@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 public class FacesListener implements PhaseListener {
 	private static final long serialVersionUID = 1L;
-	 static final Logger LOGGER = LoggerFactory.getLogger(FacesListener.class.getName());
+	static final Logger LOGGER = LoggerFactory.getLogger(FacesListener.class.getName());
 	 
 
 	@Override

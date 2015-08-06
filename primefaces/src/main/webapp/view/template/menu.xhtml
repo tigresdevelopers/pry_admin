@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<ui:composition>
+	
+		  <nav  class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <div class="user-img-div">
+                        
+                        	<h:graphicImage value="/resources/img/carnet.JPG" styleClass="img-circle" />
+                        	<!--  
+                        	<h:graphicImage value="/resources/img/fotocv.png" styleClass="img-circle" />
+                            <img src="img/user.jpg" class="img-circle" /> -->
+                        </div>
+
+                    </li>
+                     <li>
+                        <a  href="#"><strong>Alexander Chavez</strong></a>
+                    </li>
+
+                    <li>
+                        <h:link outcome="index" styleClass="#{fn:startsWith(request.servletPath,'/index')?'active-menu':'' }">
+                        	<i class="fa fa-tasks fa-fw"></i>Home
+                        </h:link>
+                    </li>
+                    <li>
+                        <a class="#{fn:startsWith(request.servletPath,'/about')?'active-menu':''} "  href="about.tigers"><i class="fa fa-dashboard "></i>Dashboard</a>
+                    </li>
+                    <li>
+                        <a class="#{fn:startsWith(request.servletPath,'/contact')?'active-menu':''} " href="contact.tigers"><i class="fa fa-venus "></i>UI Elements </a>
+                    </li>
+                    
+                    <li>
+                        <a class="#{fn:startsWith(request.servletPath,'/prueba')?'active-menu':''} " href="prueba.tigers"><i class="fa fa-bolt "></i>Data Tables </a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-code "></i>Forms</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap "></i>Multilevel Link <span class="fa arrow"></span></a>
+                         <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#"><i class="fa fa-cogs "></i>Second  Link</a>
+                            </li>
+                             <li>
+                                <a href="#"><i class="fa fa-bullhorn "></i>Second Link</a>
+                            </li>
+                            <li>
+                                <a href="#">Second Level<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="#">Third  Link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Link</a>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#"><i class="fa fa-dashcube "></i>Blank Page</a>
+                    </li>
+                   
+                </ul>
+            </div>
+
+        </nav>
+        
+	</ui:composition>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<composite:interface componentType="maintenance" >
+		<composite:attribute name="label" required="true"/>
+		<composite:attribute name="entity" required="true"/>
+		<composite:attribute name="dao"  required="true" />
+        <composite:attribute name="buttonAction" method-signature="java.lang.String action()" required="true"/>
+	</composite:interface>
+			
+	<composite:implementation>
+	
+		<h1>Mantenimiento de #{cc.attrs.label}</h1>
+		<h:dataTable value="#{cc.entityFieldsToUpper}" var="e">
+			<h:column>
+			<h:outputLabel value="#{e.toString()}: " rendered="#{e.toString().startsWith('id')==false }"/>
+			</h:column>
+			<h:column>
+			<h:inputText value="#{cc.attrs.entity[e]}" rendered="#{e.toString().startsWith('id')==false}"/>
+			</h:column>
+		</h:dataTable>
+		
+		<p:commandButton value="Registrar" action="#{cc.attrs.buttonAction}"/>
+		
+		<p:fieldset id="tabla" style="width:200px;font-size:14px">
+		
+		<table>
+		<thead>
+			<tr>
+				<ui:repeat var="f" value="#{cc.entityFieldsToUpper}">
+					<th>#{f.toString()}</th>
+				</ui:repeat>
+				<th colspan="2">Acción</th>
+			</tr>
+		</thead>
+		
+		<ui:repeat var="e" value="#{cc.list()}">
+				<tr>
+					<ui:repeat value="#{cc.entityFieldsToUpper}" var="f">
+						<td><h:outputLabel value="#{e[f]}" /></td>
+					</ui:repeat>
+					<td>
+					<h:commandLink value="Eliminar" actionListener="#{cc.attrs.dao.delete(e)}"/>
+					</td>
+					<td>
+					<h:commandLink value="Actualizar" actionListener="#{cc.attrs.dao.update(e)}" />
+					</td>
+				</tr>
+			</ui:repeat>
+		</table>
+		</p:fieldset>
+		
+	</composite:implementation>
+
+</html>
