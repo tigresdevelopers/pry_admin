@@ -13,16 +13,7 @@
     IN EXCHANGE JUST TELL PEOPLE ABOUT THIS WEBSITE
    
 ========================================================  */
-.user-img-div img {
-    height: 150px;
-   /* border: 5px solid #57534E; */
-    background: transparent none repeat scroll 0% 0%;
-    box-shadow: 1px 1px 10px 4px rgb(255, 73, 73);
-    margin-left: -10px;
-}
-.img-circle {
-    border-radius: 50%;
-}
+
 
 /*==============================================
     GENERAL  STYLES    
@@ -34,6 +25,17 @@ body {
    font-family: 'Raleway', sans-serif;
     line-height:25px;
     font-size:14px;
+}
+
+.user-img-div img {
+    height: 150px;
+   /* border: 5px solid #57534E; */
+    background: transparent none repeat scroll 0% 0%;
+    box-shadow: 1px 1px 10px 4px rgb(255, 73, 73);
+    margin-left: -10px;
+}
+.img-circle {
+    border-radius: 50%;
 }
 
 #wrapper {

@@ -11,12 +11,13 @@
         <property name="hibernate.default_schema">developer</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
         
-        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.show_sql">false</property>
         <property name="hibernate.format_sql">false</property>
         <property name="hibernate.use_sql_comments">false</property>
         <property name="hibernate.jdbc.batch_size" >100</property>
         <property name="hibernate.jdbc.order_insert" >true</property>
         <property name="hibernate.jdbc.order_update" >true</property>
+        <property  name = "hibernate.connection.pool_size" >1</property>
         <property name="hibernate.current_session_context_class">thread</property>
         
         

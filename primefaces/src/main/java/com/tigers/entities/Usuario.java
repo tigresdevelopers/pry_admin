@@ -20,6 +20,8 @@ public class Usuario implements Serializable {
 
 	private String password;
 
+	private String foto;
+	
 	//bi-directional many-to-one association to Rol
 	@ManyToOne
 	private Rol rol;
@@ -110,5 +112,15 @@ public class Usuario implements Serializable {
 
 		return empleado;
 	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
+	
 
 }

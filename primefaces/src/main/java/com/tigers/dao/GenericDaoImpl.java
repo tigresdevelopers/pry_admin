@@ -55,6 +55,8 @@ public class GenericDaoImpl<T> implements GenericDao<T>{
 				tran.commit();
 			} catch (HibernateException e) {
 				tran.rollback();
+			}finally{
+				session.close();
 			}
 		}
 	
@@ -66,6 +68,8 @@ public class GenericDaoImpl<T> implements GenericDao<T>{
 				tran.commit();
 			} catch (HibernateException e) {
 				tran.rollback();
+			}finally{
+				session.close();
 			}
 		}
 	
@@ -77,6 +81,8 @@ public class GenericDaoImpl<T> implements GenericDao<T>{
 				tran.commit();
 			} catch (HibernateException e) {
 				tran.rollback();
+			}finally{
+				session.close();
 			}
 		}
 	
@@ -88,20 +94,26 @@ public class GenericDaoImpl<T> implements GenericDao<T>{
 				tran.commit();
 			} catch (HibernateException e) {
 				tran.rollback();
+			}finally{
+				session.close();
 			}
 		}
 	
 	@SuppressWarnings("unchecked")
 	public T find(Class<T> entityClass,Serializable id){
 		  session=HibernateUtil.getSessionFactory().openSession();
-		  return (T) session.get(entityClass,id);
+		  T entity=(T) session.get(entityClass,id);
+		  session.close();
+		  return  entity;
 		}
 	
 	
 	@SuppressWarnings("unchecked")
 	public List<T> listAll(Class<T> entityClass){
 		  session=HibernateUtil.getSessionFactory().openSession();
-		  return session.createCriteria(entityClass).list();
+		  List<T> list=session.createCriteria(entityClass).list();
+		  session.close();
+		  return list;
 		}
 	
 	
@@ -110,6 +122,7 @@ public class GenericDaoImpl<T> implements GenericDao<T>{
         for (T model : object) {
         	session.save(model);
         }
+        session.close();
     }
     
     @SuppressWarnings("unchecked")
@@ -126,6 +139,7 @@ public class GenericDaoImpl<T> implements GenericDao<T>{
         }
         T obj = (T) que.uniqueResult();
         Hibernate.initialize(obj);
+        session.close();
         return obj;
     }
     
@@ -153,7 +167,9 @@ public class GenericDaoImpl<T> implements GenericDao<T>{
                 query.setParameter(entry.getKey(), entry.getValue());
             }
         }
-        return query.list();
+        List list=query.list();
+        session.close();
+        return list;
     }
 	
     @SuppressWarnings({ "unchecked", "rawtypes" })
@@ -171,7 +187,9 @@ public class GenericDaoImpl<T> implements GenericDao<T>{
                 query.setParameter(entry.getKey(), entry.getValue());
             }
         }
-        return query.list();
+        List list=query.list();
+        session.close();
+        return list;
     }
     
     
@@ -183,7 +201,9 @@ public class GenericDaoImpl<T> implements GenericDao<T>{
         for (int i = 0; i < listCriterion.size(); i++) {
             criteria.add(listCriterion.get(i));
         }
-        return criteria.list();
+        List<T> list=criteria.list();
+        session.close();
+        return list;
     }
     
     
@@ -193,6 +213,7 @@ public class GenericDaoImpl<T> implements GenericDao<T>{
         for (T model : object) {
         	session.update(model);
         }
+        session.close();
     }
     
     @Override

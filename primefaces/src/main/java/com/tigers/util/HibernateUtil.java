@@ -16,13 +16,13 @@ public class HibernateUtil {
             Configuration configuration = new Configuration();
           //configuration.configure("hibernate.cfg.xml");
             configuration.configure();
-            System.out.println("Hibernate Configuration loaded");
+            //System.out.println("Hibernate Configuration loaded");
              
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-            System.out.println("Hibernate serviceRegistry created");
+            //System.out.println("Hibernate serviceRegistry created");
              
             sessionFactory= configuration.buildSessionFactory(serviceRegistry);
-            System.out.println("Hibernate sessionfactory created");
+            //System.out.println("Hibernate sessionfactory created");
         }
         catch (Throwable ex) {
             // Make sure you log the exception, as it might be swallowed

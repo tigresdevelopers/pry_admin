@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<ui:composition template="/aplication/template/admin/admin.xhtml">
+			<ui:define name="content">
+			<h1>Mantenimientos de Menu</h1>
+			
+			<h:form id="form">
+				<p:growl id="msgs" showDetail="true" />
+			
+				<p:dataTable id="menus" value="#{menubean.menus}" var="e"  widgetVar="menuTable"
+					selectionMode="single" selection="#{menubean.menu}"  rowKey="#{e.idmenu}" paginator="true"
+					reflow="true" rows="5" rowsPerPageTemplate="5,10,15"  
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         >
+					
+				   <f:facet name="header">
+		             Mantenimiento de Menu
+				   </f:facet>
+				   		
+				   <p:ajax event="rowSelect" listener="#{menubean.onRowSelected}" update=":form:msgs" />
+        		   <p:ajax event="rowUnselect" listener="#{menubean.onRowUnselected}" update=":form:msgs" />
+				   
+				   		
+					<p:column headerText="Id" sortBy="#{e.idmenu}" filterBy="#{e.idmenu}" filterMatchMode="contains" >
+                        <h:outputText value="#{e.idmenu}" />
+                    </p:column>
+                    <p:column headerText="Descripcion" sortBy="#{e.descripcion}" filterBy="#{e.descripcion}" filterMatchMode="contains" >
+                        <h:outputText value="#{e.descripcion}" />
+                    </p:column>
+                    <p:column headerText="Padre"  filterBy="#{e.idpadre}" filterMatchMode="contains"  >
+                    	
+                    	<f:facet name="filter">
+			                <p:selectOneButton onchange="PF('menuTable').filter()">
+			                    <f:converter converterId="javax.faces.Integer" />
+			                    <f:selectItem itemLabel="All" itemValue="" />
+			                    <f:selectItem itemLabel="Yes" itemValue="3" />
+			                    <f:selectItem itemLabel="No" itemValue="0" />
+			                </p:selectOneButton>
+			            </f:facet>
+			                    
+                        <h:outputText value="#{e.idpadre}" />
+                    </p:column>
+                    <p:column headerText="Url" sortBy="#{e.url}" filterBy="#{e.url}" filterMatchMode="contains" >
+                        <h:outputText value="#{e.url}" />
+                    </p:column>
+                    <p:column headerText="Icono" sortBy="#{e.icono}" filterBy="#{e.icono}" filterMatchMode="contains" >
+                        <h:outputText value="#{e.icono}" escape="false"/>
+                    </p:column>
+				</p:dataTable>
+			
+			</h:form>
+	
+		</ui:define>
+	
+	</ui:composition>
+</html>

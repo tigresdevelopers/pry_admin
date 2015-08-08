@@ -25,6 +25,11 @@ public class Faces {
      *
      * @return
      */
+    
+    public static String getContextPath(){
+    	return Faces.getContext().getContextPath();
+    }
+    
     public static RequestContext getRequestContext() {
         return RequestContext.getCurrentInstance();
     }

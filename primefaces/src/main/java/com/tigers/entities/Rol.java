@@ -21,7 +21,7 @@ public class Rol implements Serializable {
 	@Id
 	@GenericGenerator(name="SQ_GENERATOR_ROL",strategy="sequence",parameters={@Parameter(name="sequence",value="sq_rol")})
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SQ_GENERATOR_ROL")
-	private long idrol;
+	private int idrol;
 
 	private String descripcion;
 
@@ -36,11 +36,11 @@ public class Rol implements Serializable {
 	public Rol() {
 	}
 
-	public long getIdrol() {
+	public int getIdrol() {
 		return this.idrol;
 	}
 
-	public void setIdrol(long idrol) {
+	public void setIdrol(int idrol) {
 		this.idrol = idrol;
 	}
 

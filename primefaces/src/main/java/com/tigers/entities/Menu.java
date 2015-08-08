@@ -1,14 +1,18 @@
 package com.tigers.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-
-import java.math.BigDecimal;
-import java.util.List;
 
 
 /**
@@ -22,13 +26,13 @@ public class Menu implements Serializable {
 	@Id
 	@GenericGenerator(name="SQ_GENERATOR_MENU",strategy="sequence",parameters={@Parameter(name="sequence",value="sq_menu")})
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SQ_GENERATOR_MENU")
-	private long idmenu;
+	private int idmenu;
 
 	private String descripcion;
 
 	private String icono;
 
-	private BigDecimal idpadre;
+	private int idpadre;
 
 	private String url;
 
@@ -45,14 +49,15 @@ public class Menu implements Serializable {
 		)
 	private List<Rol> rols;
 
+	
 	public Menu() {
 	}
 
-	public long getIdmenu() {
+	public int getIdmenu() {
 		return this.idmenu;
 	}
 
-	public void setIdmenu(long idmenu) {
+	public void setIdmenu(int idmenu) {
 		this.idmenu = idmenu;
 	}
 
@@ -72,11 +77,11 @@ public class Menu implements Serializable {
 		this.icono = icono;
 	}
 
-	public BigDecimal getIdpadre() {
+	public int getIdpadre() {
 		return this.idpadre;
 	}
 
-	public void setIdpadre(BigDecimal idpadre) {
+	public void setIdpadre(int idpadre) {
 		this.idpadre = idpadre;
 	}
 

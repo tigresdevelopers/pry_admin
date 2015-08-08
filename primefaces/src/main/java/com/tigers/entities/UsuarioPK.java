@@ -15,7 +15,7 @@ public class UsuarioPK implements Serializable {
 	private String idusuario;
 
 	@Column(name="ROL_IDROL", insertable=false, updatable=false)
-	private long rolIdrol;
+	private int rolIdrol;
 
 	public UsuarioPK() {
 	}
@@ -25,10 +25,10 @@ public class UsuarioPK implements Serializable {
 	public void setIdusuario(String idusuario) {
 		this.idusuario = idusuario;
 	}
-	public long getRolIdrol() {
+	public int getRolIdrol() {
 		return this.rolIdrol;
 	}
-	public void setRolIdrol(long rolIdrol) {
+	public void setRolIdrol(int rolIdrol) {
 		this.rolIdrol = rolIdrol;
 	}
 

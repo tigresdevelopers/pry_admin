@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean:beans xmlns:bean="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xmlns="http://www.springframework.org/schema/security"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+ http://www.springframework.org/schema/security 
+ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+ 
+ <bean:import resource="spring-datasource.xml"/>
+ 
+ <http auto-config="true">
+ 	<access-denied-handler error-page="/aplication/error/403.tigers" />
+ 	<intercept-url pattern="/aplication/view/admin/**" access="ROLE_USUARIO" />
+ 	<form-login login-page="/aplication/security/login.tigers" 
+ 	 login-processing-url="/login"
+ 	 username-parameter="usuario"
+ 	 password-parameter="clave"
+ 	 />
+ 	 <!--  authentication-failure-url="/error.jsp" -->
+ </http>
+ 
+
+ <authentication-manager>
+ 
+	  <authentication-provider>
+	  	 <jdbc-user-service data-source-ref="dataSource"
+		  	users-by-username-query=
+		  	"select LOGIN as username,PASSWORD as password,1 as enabled 
+		  	from usuario where LOGIN=?" 
+		  	authorities-by-username-query=
+		  	"select u.login as username ,r.descripcion as authority 
+		  	from usuario u join rol r on u.ROL_IDROL=r.IDROL where u.login=?" />
+         
+       <!--<password-encoder hash="bcrypt" />--> 
+  	   	<password-encoder ref="encoder" />
+  	  </authentication-provider>
+  	  
+ </authentication-manager>
+ 
+  
+ <bean:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+   <bean:constructor-arg name="strength" value="11" />
+ </bean:bean>
+
+
+</bean:beans>

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<ui:composition>
+	<!-- 
+		<h:outputText value="#{test.menu}" escape="false" />
+	 -->
+	 <!-- 	
+	  <nav  class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <div class="user-img-div">
+                        	<h:graphicImage value="/resources/img/carnet.JPG" styleClass="img-circle" />
+                        </div>
+                    </li>
+                     <li>
+                        <a  href="#"><strong>Alexander Chavez</strong></a>
+                    </li>
+                 
+                  
+				<ui:repeat var="menu" value="#{test.listarMenus()}" >
+					
+					<ui:fragment rendered="#{menu.idpadre eq 0 and menu.url eq '#'}">
+						<li>
+			               <a class="#{fn:startsWith(request.servletPath,'/'.concat(menu.url))?'active-menu':''} " href="#{menu.url}">
+			               <h:outputText value="#{menu.icono}" escape="false" />#{menu.descripcion}<span class="fa arrow"></span></a>
+			            
+				            <ul class="nav nav-second-level">
+					            <ui:repeat var="child" value="#{test.listarMenus()}">
+					            	<ui:fragment rendered="#{child.idpadre eq menu.idmenu}">
+					            		<li>
+							               <a class="#{fn:startsWith(request.servletPath,'/'.concat(child.url))?'active-menu':''} " href="#{child.url}">
+							               <h:outputText value="#{child.icono}" escape="false" />#{child.descripcion}</a>
+							            </li>
+					            	</ui:fragment>
+					            </ui:repeat>
+				            </ul>
+			           </li>
+					</ui:fragment>
+					
+					<ui:fragment rendered="#{menu.idpadre eq 0 and menu.url ne '#'}">
+						<li>
+			               <a class="#{fn:startsWith(request.servletPath,'/'.concat(menu.url))?'active-menu':''} " href="#{menu.url}">
+			               <h:outputText value="#{menu.icono}" escape="false" />#{menu.descripcion}</a>
+			            </li>
+					</ui:fragment>
+					
+				</ui:repeat>
+	         </ul>
+            </div>
+
+        </nav>
+	-->
+	<h:form>
+	  <nav  class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <div class="user-img-div">
+                        	<h:graphicImage value="/resources/img/carnet.JPG" styleClass="img-circle" />
+                        </div>
+                    </li>
+                     <li>
+                        <a  href="#"><strong>Navegation controled</strong></a>
+                    </li>
+                 
+                  
+				<ui:repeat var="menu" value="#{test.listarMenus()}" >
+					
+					<ui:fragment rendered="#{menu.idpadre eq 0 and menu.url eq '#'}">
+						<li>
+			               <a class="#{fn:startsWith(request.servletPath,'/'.concat(menu.url))?'active-menu':''} " href="#{menu.url}">
+			               <h:outputText value="#{menu.icono}" escape="false" />#{menu.descripcion}<span class="fa arrow"></span></a>
+			            
+				            <ul class="nav nav-second-level">
+					            <ui:repeat var="child" value="#{test.listarMenus()}">
+					            	<ui:fragment rendered="#{child.idpadre eq menu.idmenu}">
+					            		<li>
+							               <h:commandLink action="#{link.redirect(child.url)}"  styleClass="#{fn:startsWith(request.servletPath,'/'.concat(child.url))?'active-menu':''} " >
+							               <h:outputText value="#{child.icono}" escape="false" />#{child.descripcion}
+							               </h:commandLink>
+							            </li>
+					            	</ui:fragment>
+					            </ui:repeat>
+				            </ul>
+			           </li>
+					</ui:fragment>
+					
+					<ui:fragment rendered="#{menu.idpadre eq 0 and menu.url ne '#'}">
+						<li>
+						<h:commandLink action="#{link.redirect(menu.url)}" styleClass="#{fn:startsWith(request.servletPath,'/'.concat(menu.url))?'active-menu':''} ">
+							<h:outputText value="#{menu.icono}" escape="false" />#{menu.descripcion}
+						</h:commandLink>
+			            </li>
+					</ui:fragment>
+					
+				</ui:repeat>
+	         </ul>
+            </div>
+
+        </nav>
+	
+	</h:form>
+	
+	</ui:composition>
+
+	
+	
+	
+</html>
