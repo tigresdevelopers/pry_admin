@@ -8,7 +8,7 @@ Las herramientas usadas en este proyecto son las siguientes:
 - JPA
 - Hibernate 4.3
 - Spring Security 3.2.2
-- Oracle Databes 11G
+- Oracle Database 11G
 
 Primera Parte: Introducción
 ========
